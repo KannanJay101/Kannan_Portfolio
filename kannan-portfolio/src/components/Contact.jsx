@@ -55,10 +55,10 @@ const Contact = () => {
               </div>
             </div>
             <div className="social-links">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://github.com/KannanJay101" target="_blank" rel="noopener noreferrer" className="social-link">
                 GitHub
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.linkedin.com/in/kannan-jayakumar-4a79b3258/" target="_blank" rel="noopener noreferrer" className="social-link">
                 LinkedIn
               </a>
               {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">

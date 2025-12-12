@@ -4,37 +4,22 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce application with shopping cart, payment integration, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: 'https://via.placeholder.com/400x250/646cff/ffffff?text=E-Commerce',
-      github: '#',
+      title: 'VHDL Implementation of RV64I Execution Unit on FPGA',
+      description: 'Developed a VHDL-based RV64I execution unit and successfully implemented it on an FPGA board, achieving efficient instruction processing and performance optimization.',
+      technologies: ['VHDL'],
+      image: 'https://media.licdn.com/dms/image/v2/D5622AQENYPZCOPanYQ/feedshare-shrink_1280/B56ZZJ5e2VHsAk-/0/1744996527792?e=1767225600&v=beta&t=LWx34IxCPX7FPR5tqvNS-7gTOis49CqnAj4yn8KqjKE',
+      github: 'https://github.com/KannanJay101/RV64I-Execution-Unit-FPGA-Design-',
       demo: '#',
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management tool with real-time updates and team collaboration features.',
-      technologies: ['React', 'Firebase', 'Material-UI'],
-      image: 'https://via.placeholder.com/400x250/535bf2/ffffff?text=Task+Manager',
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'A beautiful weather application with forecasts, maps, and location-based weather alerts.',
-      technologies: ['React', 'Weather API', 'Chart.js'],
-      image: 'https://via.placeholder.com/400x250/4a90e2/ffffff?text=Weather+App',
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Social Media Clone',
-      description: 'A social media platform with posts, comments, likes, and real-time messaging.',
-      technologies: ['React', 'Express', 'Socket.io', 'PostgreSQL'],
-      image: 'https://via.placeholder.com/400x250/7b68ee/ffffff?text=Social+Media',
-      github: '#',
-      demo: '#',
-    },
+      title: 'Tank Blaster Game',
+      description: 'Created a 3D tank blaster game using C++ in Unreal Engine, featuring immersive gameplay, dynamic environments, and engaging combat mechanics.',
+      technologies: ['C++', 'Unreal Engine'],
+      image: 'public/Screenshot 2025-12-12 at 10-54-14 Kannan Coop Symposium - Google Slides.png'
+    }
+
+  
+   
   ];
 
   return (
