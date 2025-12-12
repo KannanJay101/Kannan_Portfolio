@@ -15,7 +15,9 @@ const Projects = () => {
       title: 'Tank Blaster Game',
       description: 'Created a 3D tank blaster game using C++ in Unreal Engine, featuring immersive gameplay, dynamic environments, and engaging combat mechanics.',
       technologies: ['C++', 'Unreal Engine'],
-      image: 'public/Screenshot 2025-12-12 at 10-54-14 Kannan Coop Symposium - Google Slides.png'
+      image: 'public/Screenshot 2025-12-12 at 10-54-14 Kannan Coop Symposium - Google Slides.png',
+      github: 'https://github.com/KannanJay101/BattleBlaster',
+      demo: 'https://kannanjay101.itch.io/tank-blaster-game',
     }
 
   
