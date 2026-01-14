@@ -27,7 +27,8 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#home" className="nav-logo" onClick={(e) => scrollToSection(e, '#home')}>
-          Kannan
+          <img src="/Kannanpfp.JPG" alt="Kannan" className="nav-logo-img" />
+          <span>Kannan</span>
         </a>
         
         <button 
@@ -53,6 +54,11 @@ const Navbar = () => {
           <li className="nav-item">
             <a href="#skills" className="nav-link" onClick={(e) => scrollToSection(e, '#skills')}>
               Skills
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#experience" className="nav-link" onClick={(e) => scrollToSection(e, '#experience')}>
+              Experience
             </a>
           </li>
           <li className="nav-item">

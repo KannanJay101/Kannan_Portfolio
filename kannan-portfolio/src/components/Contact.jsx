@@ -101,6 +101,10 @@ const Contact = () => {
             <button type="submit" className="btn btn-primary">Send Message</button>
           </form>
         </div>
+        
+        <div className="contact-profile">
+          <img src="/Kannanpfp.JPG" alt="Kannan Jayakumar" className="contact-profile-img" />
+        </div>
       </div>
     </section>
   );

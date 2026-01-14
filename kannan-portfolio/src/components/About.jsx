@@ -9,25 +9,31 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-               Passionate about digital design, embedded systems, and firmware development. I work with Verilog/VHDL to build custom execution units, develop firmware for autonomous systems at SFU UAS, and prototype IoT applications using Raspberry Pi and microcontrollers. I also build full stack web applications and recently began exploring game development.
+               As a Computer Engineering student at SFU with experience in industrial IT, I always strive to bridge the gap between complex hardware and high-performance software.
+
+I am always ready to dive into technical challenges, whether that’s remaking a legendary game like Halo in Unreal Engine or designing a custom execution unit in VHDL.
+
+I have experience with web development, embedded systems, and FPGA design, but am currently focused on mastering high-performance C++ and Rust.
+
+Scroll down to see my experience and projects.
             </p>
             <p>
               When I'm not coding, you can find me exploring new technologies, contributing to 
               open-source projects, or sharing knowledge with the developer community.
             </p>
             <div className="about-stats">
-              <div className="stat">
+              {/* <div className="stat">
                 <h3>2+</h3>
                 <p>Years Experience</p>
               </div>
               <div className="stat">
                 <h3>15+</h3>
                 <p>Projects Completed</p>
-              </div>
-              <div className="stat">
+              </div> */}
+              {/* <div className="stat">
                 <h3>10+</h3>
                 <p>Happy Clients</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ const Hero = () => {
         </h1>
         <h2 className="hero-subtitle">Computer Engineer</h2>
         <p className="hero-description">
-          Computer Engineer at SFU. I build systems from silicon to screen—from C++ firmware for robotics and VHDL for FPGAs to full-stack web apps and games in Unreal Engine 5.
+          Computer Engineer at SFU. I build systems from silicon to screen from C++ firmware for robotics and VHDL for FPGAs to full-stack web apps and games in Unreal Engine 5.
         </p>
         <div className="hero-buttons">
           <a href="#projects" className="btn btn-primary">View My Work</a>
