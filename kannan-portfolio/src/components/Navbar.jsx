@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HelmetScene from './Helmet';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -29,6 +30,9 @@ const Navbar = () => {
         <a href="#home" className="nav-logo" onClick={(e) => scrollToSection(e, '#home')}>
           <img src="/Kannanpfp.JPG" alt="Kannan" className="nav-logo-img" />
           <span>Kannan</span>
+          <div className="nav-helmet">
+            <HelmetScene />
+          </div>
         </a>
         
         <button 

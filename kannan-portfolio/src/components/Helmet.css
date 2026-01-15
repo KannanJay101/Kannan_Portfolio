@@ -30,10 +30,13 @@ Usage (example HTML to pair with this CSS):
     width: var(--helmet-size);
     height: calc(var(--helmet-size) * 0.78);
     display: block;
-    position: relative;
-    margin: 20px auto;
+    position: absolute;
+    top: 280px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    margin: 0;
     filter: drop-shadow(0 12px 18px var(--shadow));
-    transform: translateZ(0); /* promote to its own layer for smoother rendering */
+    z-index: 5;
 }
 
 /* Outer shell */

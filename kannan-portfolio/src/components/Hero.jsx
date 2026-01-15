@@ -1,16 +1,19 @@
 import React from 'react';
-import HelmetScene from './Helmet'; // 1. Import the new component
 import './Hero.css';
 
 const Hero = () => {
   return (
     <section id="home" className="hero">
-      {/* 2. Add the 3D scene component here, inside a wrapper */}
-      <div className="hero-background-scene">
-        <HelmetScene />
+      {/* Profile Photo */}
+      <div className="profile-photo-container">
+        <img 
+          src="public/Kannanpfp.JPG" 
+          alt="Kannan" 
+          className="profile-photo"
+        />
       </div>
 
-      {/* 3. All your existing content is now layered on top */}
+      {/* All your existing content */}
       <div className="hero-content">
         <h1 className="hero-title">
           Hi, I'm <span className="highlight">Kannan</span>
