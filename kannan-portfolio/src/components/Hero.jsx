@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Profile Photo */}
       <div className="profile-photo-container">
         <img 
-          src="public/Kannanpfp.JPG" 
+          src="/Kannanpfp.JPG"
           alt="Kannan" 
           className="profile-photo"
         />
