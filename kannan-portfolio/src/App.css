@@ -14,11 +14,12 @@ html {
 }
 
 .footer {
-  background-color: #1a1a1a;
+  background-color: rgba(16, 22, 38, 0.9);
   padding: 2rem;
   text-align: center;
-  color: #888;
-  border-top: 1px solid #333;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .footer p {

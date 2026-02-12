@@ -1,6 +1,6 @@
 .skills {
   padding: 5rem 2rem;
-  background-color: #242424;
+  background-color: var(--bg);
 }
 
 .skills-grid {
@@ -12,14 +12,17 @@
 }
 
 .skill-item {
-  background-color: #1a1a1a;
+  background-color: var(--panel-solid);
   padding: 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .skill-item:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.3);
 }
 
 .skill-header {
@@ -31,25 +34,26 @@
 .skill-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
 }
 
 .skill-percentage {
   font-size: 1rem;
-  color: #646cff;
+  color: var(--neon-cyan);
   font-weight: 600;
 }
 
 .skill-bar {
   height: 8px;
-  background-color: #333;
+  background-color: rgba(0, 240, 255, 0.12);
   border-radius: 4px;
   overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.2);
 }
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, #646cff, #535bf2);
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
   border-radius: 4px;
   transition: width 1s ease-out;
   animation: fillBar 1.5s ease-out;

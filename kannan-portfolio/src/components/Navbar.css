@@ -10,10 +10,10 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(36, 36, 36, 0.95);
+  background-color: var(--panel);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(100, 108, 255, 0.3);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav-container {
@@ -30,13 +30,13 @@
   gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #646cff;
+  color: var(--neon-cyan);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-logo:hover {
-  color: #535bf2;
+  color: var(--neon-pink);
 }
 
 .nav-logo-img {
@@ -44,12 +44,13 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #646cff;
+  border: 2px solid var(--neon-cyan);
   transition: border-color 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
 }
 
 .nav-logo:hover .nav-logo-img {
-  border-color: #535bf2;
+  border-color: var(--neon-pink);
 }
 
 .nav-helmet {
@@ -72,7 +73,7 @@
 }
 
 .nav-link {
-  color: #fff;
+  color: var(--text);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -87,7 +88,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #646cff;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
   transition: width 0.3s ease;
 }
 
@@ -96,7 +97,7 @@
 }
 
 .nav-link:hover {
-  color: #646cff;
+  color: var(--neon-pink);
 }
 
 .nav-toggle {
@@ -112,7 +113,7 @@
 .nav-toggle span {
   width: 25px;
   height: 3px;
-  background-color: #fff;
+  background-color: var(--neon-cyan);
   margin: 3px 0;
   transition: all 0.3s ease;
   border-radius: 2px;
@@ -144,7 +145,7 @@
     top: 0;
     right: -100%;
     flex-direction: column;
-    background-color: rgba(36, 36, 36, 0.98);
+    background-color: var(--panel);
     backdrop-filter: blur(10px);
     width: 70%;
     max-width: 300px;
@@ -152,7 +153,8 @@
     padding: 5rem 2rem 2rem;
     gap: 2rem;
     transition: right 0.3s ease;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.6);
+    border-left: 1px solid var(--border);
   }
 
   .nav-menu.active {

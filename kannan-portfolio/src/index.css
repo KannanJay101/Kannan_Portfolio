@@ -1,16 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Rajdhani', 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #e6f1ff;
+  background-color: #0b0f1a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --font-mono: 'Share Tech Mono', 'Consolas', monospace;
+  --bg: #0b0f1a;
+  --bg-alt: #0f1424;
+  --panel: rgba(16, 22, 38, 0.88);
+  --panel-solid: #101626;
+  --text: #e6f1ff;
+  --muted: #95a4c6;
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff2fdc;
+  --neon-yellow: #ffe600;
+  --border: rgba(0, 240, 255, 0.35);
+  --glow-cyan: rgba(0, 240, 255, 0.35);
+  --glow-pink: rgba(255, 47, 220, 0.3);
 }
 
 * {
@@ -23,7 +39,25 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #242424;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255, 47, 220, 0.12), transparent 45%),
+    linear-gradient(135deg, #070a12 0%, #0b0f1a 45%, #0f1424 100%);
+  color: var(--text);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 47, 220, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.35;
 }
 
 #root {
@@ -33,7 +67,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  color: #fff;
+  color: var(--text);
+  letter-spacing: 0.02em;
 }
 
 p {
@@ -41,23 +76,26 @@ p {
 }
 
 a {
-  color: #646cff;
+  color: var(--neon-cyan);
   text-decoration: none;
 }
 
 button {
-  border-radius: 8px;
-  border: none;
+  border-radius: 10px;
+  border: 1px solid var(--border);
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: var(--text);
+  background: rgba(16, 22, 38, 0.8);
+  box-shadow: 0 0 0 rgba(0, 240, 255, 0);
 }
 
 button:focus,
 button:focus-visible {
-  outline: 2px solid #646cff;
+  outline: 2px solid var(--neon-cyan);
   outline-offset: 2px;
 }

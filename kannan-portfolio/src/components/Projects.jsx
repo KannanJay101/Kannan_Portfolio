@@ -7,21 +7,34 @@ const Projects = () => {
       title: 'VHDL Implementation of RV64I Execution Unit on FPGA',
       description: 'Developed a VHDL-based RV64I execution unit and successfully implemented it on an FPGA board, achieving efficient instruction processing and performance optimization.',
       technologies: ['VHDL'],
-      image: 'https://media.licdn.com/dms/image/v2/D5622AQENYPZCOPanYQ/feedshare-shrink_1280/B56ZZJ5e2VHsAk-/0/1744996527792?e=1767225600&v=beta&t=LWx34IxCPX7FPR5tqvNS-7gTOis49CqnAj4yn8KqjKE',
+      image: '/VHDL.png',
       github: 'https://github.com/KannanJay101/RV64I-Execution-Unit-FPGA-Design-',
       demo: '#',
     },
     {
+      title: 'CUDA-Accelerated Deep Learning Model',
+      description: 'Achieved 98% accuracy on MNIST digit recognition with 12x speedup in training. Optimized cache usage for 60,000+ images using C++ and CUDA.',
+      technologies: ['C++', 'CUDA', 'AI/ML'],
+      image: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Nvidia_CUDA_Logo.jpg',
+      github: '#',
+      demo: '#',
+    },
+    {
       title: 'Tank Blaster Game',
-      description: 'Created a 3D tank blaster game using C++ in Unreal Engine, featuring immersive gameplay, dynamic environments, and engaging combat mechanics.',
-      technologies: ['C++', 'Unreal Engine'],
-      image: 'public/Screenshot 2025-12-12 at 10-54-14 Kannan Coop Symposium - Google Slides.png',
+      description: 'Created a 3D tank blaster game using C++ in Unreal Engine 5, maintaining stable 60 FPS, reusable UHealthComponent, and complex projectile physics with collision detection.',
+      technologies: ['C++', 'Unreal Engine 5'],
+      image: '/Screenshot 2025-12-12 at 10-54-14 Kannan Coop Symposium - Google Slides.png',
       github: 'https://github.com/KannanJay101/BattleBlaster',
       demo: 'https://kannanjay101.itch.io/tank-blaster-game',
-    }
-
-  
-   
+    },
+    {
+      title: 'Azure Developer CLI (azd) Contribution',
+      description: 'Contributed to Azure Developer CLI to reduce API integration complexity and cut initial environment setup time by 40% using REST APIs and Azure SDKs.',
+      technologies: ['Azure', 'REST APIs', 'SDKs'],
+      image: 'https://swimburger.net/media/ppnn3pcl/azure.png',
+      github: '#',
+      demo: '#',
+    },
   ];
 
   return (

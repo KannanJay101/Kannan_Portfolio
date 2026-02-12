@@ -1,6 +1,6 @@
 .about {
   padding: 5rem 2rem;
-  background-color: #1a1a1a;
+  background-color: var(--bg-alt);
 }
 
 .container {
@@ -26,7 +26,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background-color: #646cff;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
   border-radius: 2px;
 }
 
@@ -43,7 +43,7 @@
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #ccc;
+  color: var(--muted);
   margin-bottom: 1.5rem;
 }
 
@@ -57,24 +57,27 @@
 .stat {
   text-align: center;
   padding: 1.5rem;
-  background-color: #242424;
+  background-color: var(--panel-solid);
   border-radius: 12px;
   transition: transform 0.3s ease;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .stat:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.35);
 }
 
 .stat h3 {
   font-size: 2.5rem;
-  color: #646cff;
+  color: var(--neon-cyan);
   margin-bottom: 0.5rem;
 }
 
 .stat p {
   font-size: 1rem;
-  color: #888;
+  color: var(--muted);
   margin: 0;
 }
 
