@@ -15,12 +15,31 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    const form = e.target;
+    const submitData = new URLSearchParams({
+      'form-name': 'contact',
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    }).toString();
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: submitData,
+      });
+      if (response.ok) {
+        alert('Thank you for your message! I will get back to you soon.');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Something went wrong. Please email me directly at kannanjayakumar101@gmail.com');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please email me directly at kannanjayakumar101@gmail.com');
+    }
   };
 
   return (
@@ -67,7 +86,11 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
+            <div className="form-group" hidden>
+              <input name="bot-field" />
+            </div>
             <div className="form-group">
               <input
                 type="text"
