@@ -11,15 +11,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.5;
+  opacity: 0.25;
   transition: opacity 0.3s ease;
 }
 
 .hud:hover .hud__corner {
-  opacity: 0.8;
+  opacity: 0.45;
 }
 
 .hud__corner--tl {
@@ -27,67 +27,69 @@
   left: 1rem;
   flex-direction: row;
   gap: 0.3rem;
-  color: var(--neon-pink);
+  color: rgba(200, 168, 48, 0.6);
 }
 
 .hud__corner--tr {
   top: 5rem;
   right: 1rem;
   align-items: flex-end;
-  color: var(--neon-pink);
+  color: rgba(200, 168, 48, 0.6);
 }
 
 .hud__corner--bl {
   bottom: 1.5rem;
   left: 1rem;
-  color: var(--neon-pink);
+  color: rgba(154, 149, 144, 0.5);
 }
 
 .hud__corner--br {
   bottom: 1.5rem;
   right: 1rem;
   align-items: flex-end;
-  color: var(--neon-pink);
+  color: rgba(154, 149, 144, 0.5);
 }
 
 .hud__bracket {
-  color: var(--neon-cyan);
+  color: rgba(200, 168, 48, 0.5);
   font-weight: 700;
 }
 
 .hud__label {
-  color: var(--neon-cyan);
-  animation: hudPulse 2s ease-in-out infinite;
+  color: rgba(200, 168, 48, 0.5);
+  animation: hudPulse 3s ease-in-out infinite;
 }
 
 .hud__time {
-  font-size: 0.75rem;
-  color: var(--neon-cyan);
-  text-shadow: 0 0 6px rgba(255, 0, 85, 0.4);
+  font-size: 0.7rem;
+  color: rgba(200, 168, 48, 0.5);
 }
 
 .hud__hex {
-  font-size: 0.6rem;
-  color: rgba(5, 217, 232, 0.6);
+  font-size: 0.55rem;
+  color: rgba(154, 149, 144, 0.35);
 }
 
 .hud__data {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
 }
 
 .hud__data--dim {
   opacity: 0.5;
 }
 
+.hud__shield-indicator {
+  color: rgba(0, 180, 216, 0.5);
+}
+
 .hud__status {
-  color: #00ff88;
-  text-shadow: 0 0 6px rgba(0, 255, 136, 0.5);
+  color: rgba(0, 255, 136, 0.4);
 }
 
 .hud__border {
   position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(255, 0, 85, 0.15), transparent);
-  opacity: 0.4;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  opacity: 0.5;
 }
 
 .hud__border--top,
@@ -110,7 +112,7 @@
   top: 5%;
   bottom: 5%;
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(5, 217, 232, 0.12), transparent);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02), transparent);
 }
 
 .hud__border--left {
@@ -123,12 +125,12 @@
 
 @keyframes hudPulse {
   0%, 100% { opacity: 1; }
-  50%      { opacity: 0.5; }
+  50%      { opacity: 0.4; }
 }
 
 @media (max-width: 768px) {
   .hud__corner {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
   }
 
   .hud__corner--tl { top: 4rem; }

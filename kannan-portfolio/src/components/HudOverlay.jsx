@@ -22,7 +22,7 @@ const HudOverlay = () => {
         chars[Math.floor(Math.random() * 16)]
       ).join('');
     };
-    const timer = setInterval(() => setDataStream(hex()), 150);
+    const timer = setInterval(() => setDataStream(hex()), 200);
     return () => clearInterval(timer);
   }, []);
 
@@ -30,23 +30,23 @@ const HudOverlay = () => {
     <div className="hud">
       <div className="hud__corner hud__corner--tl">
         <span className="hud__bracket">[</span>
-        <span className="hud__label">SYS.ACTIVE</span>
+        <span className="hud__label">SPARTAN-117</span>
         <span className="hud__bracket">]</span>
       </div>
 
       <div className="hud__corner hud__corner--tr">
         <span className="hud__time">{time}</span>
-        <span className="hud__hex">0x{dataStream}</span>
+        <span className="hud__hex">MJOLNIR-{dataStream}</span>
       </div>
 
       <div className="hud__corner hud__corner--bl">
-        <span className="hud__data">NET://NIGHT_CITY</span>
-        <span className="hud__data hud__data--dim">PING: {Math.floor(Math.random() * 5 + 1)}ms</span>
+        <span className="hud__data">TACCOM://INFINITY</span>
+        <span className="hud__data hud__data--dim">SIGNAL: {Math.floor(Math.random() * 5 + 1)}ms</span>
       </div>
 
       <div className="hud__corner hud__corner--br">
-        <span className="hud__data hud__data--dim">ICE: BYPASSED</span>
-        <span className="hud__data">STATUS: <span className="hud__status">ONLINE</span></span>
+        <span className="hud__data hud__shield-indicator">SHIELDS: 100%</span>
+        <span className="hud__data">STATUS: <span className="hud__status">OPERATIONAL</span></span>
       </div>
 
       <div className="hud__border hud__border--top"></div>
