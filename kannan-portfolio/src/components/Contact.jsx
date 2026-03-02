@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
+// Replace these with your actual EmailJS credentials:
+// 1. Sign up at https://www.emailjs.com
+// 2. Add a Gmail service → copy the Service ID
+// 3. Create a template with variables: {{from_name}}, {{from_email}}, {{message}} → copy the Template ID
+// 4. Go to Account → copy your Public Key
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
 const Contact = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     message: '',
   });
+  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -17,28 +29,21 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const submitData = new URLSearchParams({
-      'form-name': 'contact',
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-    }).toString();
+    setSending(true);
 
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: submitData,
-      });
-      if (response.ok) {
-        alert('Thank you for your message! I will get back to you soon.');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        alert('Something went wrong. Please email me directly at kannanjayakumar101@gmail.com');
-      }
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+      alert('Thank you for your message! I will get back to you soon.');
+      setFormData({ from_name: '', from_email: '', message: '' });
     } catch (err) {
       alert('Something went wrong. Please email me directly at kannanjayakumar101@gmail.com');
+    } finally {
+      setSending(false);
     }
   };
 
@@ -80,23 +85,19 @@ const Contact = () => {
               <a href="https://www.linkedin.com/in/kannan-jayakumar-4a79b3258/" target="_blank" rel="noopener noreferrer" className="social-link">
                 LinkedIn
               </a>
-              {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                Twitter
-              </a> */}
             </div>
           </div>
 
-          <form className="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
-            <input type="hidden" name="form-name" value="contact" />
+          <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group" hidden>
               <input name="bot-field" />
             </div>
             <div className="form-group">
               <input
                 type="text"
-                name="name"
+                name="from_name"
                 placeholder="Your Name"
-                value={formData.name}
+                value={formData.from_name}
                 onChange={handleChange}
                 required
               />
@@ -104,9 +105,9 @@ const Contact = () => {
             <div className="form-group">
               <input
                 type="email"
-                name="email"
+                name="from_email"
                 placeholder="Your Email"
-                value={formData.email}
+                value={formData.from_email}
                 onChange={handleChange}
                 required
               />
@@ -121,7 +122,9 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">Send Message</button>
+            <button type="submit" className="btn btn-primary" disabled={sending}>
+              {sending ? 'Sending...' : 'Send Message'}
+            </button>
           </form>
         </div>
         

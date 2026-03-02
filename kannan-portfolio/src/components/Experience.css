@@ -16,7 +16,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--neon-cyan), transparent);
+  background: linear-gradient(to bottom, var(--neon-cyan), rgba(168, 85, 247, 0.4), transparent);
 }
 
 .experience-item {
@@ -41,7 +41,7 @@
   border-radius: 50%;
   z-index: 1;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 14px rgba(0, 240, 255, 0.6);
+  box-shadow: 0 0 14px rgba(255, 0, 85, 0.6);
 }
 
 .experience-item:hover .experience-marker {
@@ -54,7 +54,7 @@
   border-radius: 10px;
   border-left: 3px solid var(--neon-pink);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  border: 1px solid rgba(255, 0, 85, 0.2);
 }
 
 .experience-item:hover .experience-content {
@@ -74,10 +74,10 @@
   margin-bottom: 1rem;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  border: 1px solid rgba(255, 0, 85, 0.2);
   width: 100%;
   height: 140px;
-  background-color: rgba(11, 15, 26, 0.5);
+  background-color: rgba(8, 1, 22, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +111,7 @@
 }
 
 .experience-period {
-  background-color: rgba(0, 240, 255, 0.15);
+  background-color: rgba(255, 0, 85, 0.12);
   color: var(--neon-cyan);
   padding: 0.35rem 0.75rem;
   border-radius: 16px;

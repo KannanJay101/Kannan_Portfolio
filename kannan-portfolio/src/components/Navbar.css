@@ -46,7 +46,7 @@
   object-fit: cover;
   border: 2px solid var(--neon-cyan);
   transition: border-color 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 12px rgba(255, 0, 85, 0.4);
 }
 
 .nav-logo:hover .nav-logo-img {
