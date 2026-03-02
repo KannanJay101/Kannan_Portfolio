@@ -10,19 +10,20 @@
   overflow: hidden;
 }
 
+/* ── Scanline overlay ── */
 .scanlines {
   position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.015) 0px,
-    rgba(0, 0, 0, 0.015) 1px,
+    rgba(0, 0, 0, 0.03) 0px,
+    rgba(0, 0, 0, 0.03) 1px,
     transparent 1px,
-    transparent 4px
+    transparent 3px
   );
   pointer-events: none;
   z-index: 9999;
-  animation: scanlineScroll 12s linear infinite;
+  animation: scanlineScroll 8s linear infinite;
 }
 
 @keyframes scanlineScroll {
@@ -30,41 +31,26 @@
   100% { background-position: 0 100vh; }
 }
 
+/* ── Profile photo ── */
 .profile-photo-container {
   z-index: 10;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   animation: fadeInDown 1s ease-out;
-  position: relative;
-}
-
-.profile-shield-ring {
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: var(--halo-gold);
-  border-right-color: rgba(74, 139, 63, 0.4);
-  animation: shieldSpin 5s linear infinite;
-}
-
-@keyframes shieldSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
 }
 
 .profile-photo {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  border: 3px solid rgba(200, 168, 48, 0.5);
+  border: 4px solid var(--neon-cyan);
   object-fit: cover;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(255, 0, 85, 0.4), 0 0 60px rgba(5, 217, 232, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(200, 168, 48, 0.15);
+  box-shadow: 0 0 40px rgba(255, 0, 85, 0.6), 0 0 80px rgba(5, 217, 232, 0.25);
 }
 
 @keyframes fadeInDown {
@@ -72,63 +58,136 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Hero content ── */
 .hero-content {
   max-width: 800px;
   animation: fadeInUp 1s ease-out;
 }
 
+/* ── Glitch title ── */
 .hero-title {
-  font-family: var(--font-display);
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  line-height: 1.1;
+  margin-bottom: 1rem;
+  line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
+  position: relative;
+  display: inline-block;
+}
+
+.glitch {
+  animation: glitchShift 4s infinite linear;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  color: var(--neon-pink);
+  z-index: -1;
+  animation: glitchTop 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: var(--neon-cyan);
+  z-index: -2;
+  animation: glitchBottom 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0%   { clip-path: inset(0 0 85% 0); transform: translate(0); }
+  5%   { clip-path: inset(15% 0 65% 0); transform: translate(-4px, -2px); }
+  10%  { clip-path: inset(50% 0 20% 0); transform: translate(4px, 2px); }
+  15%  { clip-path: inset(0 0 85% 0); transform: translate(0); }
+  20%  { clip-path: inset(25% 0 55% 0); transform: translate(3px, -1px); }
+  25%  { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+}
+
+@keyframes glitchBottom {
+  0%   { clip-path: inset(85% 0 0 0); transform: translate(0); }
+  5%   { clip-path: inset(60% 0 10% 0); transform: translate(5px, 1px); }
+  10%  { clip-path: inset(20% 0 50% 0); transform: translate(-3px, -2px); }
+  15%  { clip-path: inset(85% 0 0 0); transform: translate(0); }
+  20%  { clip-path: inset(70% 0 5% 0); transform: translate(-4px, 2px); }
+  25%  { clip-path: inset(100% 0 0 0); transform: translate(0); }
+  100% { clip-path: inset(100% 0 0 0); transform: translate(0); }
+}
+
+@keyframes glitchShift {
+  0%, 90%, 100% { transform: translate(0); }
+  91% { transform: translate(-2px, 1px); }
+  92% { transform: translate(2px, -1px); }
+  93% { transform: translate(0); }
+  94% { transform: translate(3px, 0); }
+  95% { transform: translate(-1px, 2px); }
+  96% { transform: translate(0); }
 }
 
 .highlight {
-  color: var(--halo-gold);
-  text-shadow: 0 0 30px rgba(200, 168, 48, 0.2);
+  color: var(--neon-cyan);
+  position: relative;
+  text-shadow: 0 0 18px rgba(255, 0, 85, 0.6), 0 0 40px rgba(255, 0, 85, 0.2);
 }
 
-.hero-subtitle {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--halo-gold);
-  margin-bottom: 2rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+/* ── Neon flicker subtitle ── */
+.neon-flicker {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--neon-pink);
+  margin-bottom: 1.5rem;
+  animation: neonFlicker 3s infinite;
+  text-shadow: 0 0 10px rgba(5, 217, 232, 0.6), 0 0 30px rgba(5, 217, 232, 0.3), 0 0 60px rgba(5, 217, 232, 0.1);
+}
+
+@keyframes neonFlicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(5, 217, 232, 0.6), 0 0 30px rgba(5, 217, 232, 0.3), 0 0 60px rgba(5, 217, 232, 0.1);
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.85;
+    text-shadow: none;
+  }
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--muted);
-  margin-bottom: 2.5rem;
-  line-height: 1.7;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .typing-text {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-align: left;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  background: rgba(14, 14, 18, 0.6);
-  border: 1px solid var(--border);
+  background: rgba(8, 1, 22, 0.4);
+  border: 1px solid rgba(255, 0, 85, 0.15);
+  border-radius: 6px;
   padding: 1rem 1.25rem;
   min-height: 5rem;
 }
 
 .typing-prefix {
-  color: var(--halo-gold);
+  color: var(--neon-cyan);
   font-weight: 700;
 }
 
 .typing-cursor {
-  color: var(--halo-gold);
+  color: var(--neon-cyan);
   font-weight: 700;
   margin-left: 1px;
 }
@@ -139,47 +198,94 @@
 
 .hero-buttons {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Campaign Evolved button style */
-.halo-btn {
+/* ── Cyberpunk 2077 Buttons ── */
+.cybr-btn {
+  position: relative;
   display: inline-block;
-  padding: 0.9rem 2.5rem;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
+  padding: 0.875rem 2.5rem;
+  background: linear-gradient(120deg, rgba(255, 0, 85, 0.25), rgba(168, 85, 247, 0.15));
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   text-decoration: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.halo-btn--primary {
-  background: var(--chief-green);
-  color: #fff;
   border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 92% 100%, 0 100%);
+  box-shadow: inset 0 -3px 0 0 var(--neon-pink);
 }
 
-.halo-btn--primary:hover {
-  background: #58a34a;
-  box-shadow: 0 0 30px rgba(74, 139, 63, 0.3);
+.cybr-btn:hover {
+  background: linear-gradient(120deg, rgba(255, 0, 85, 0.4), rgba(168, 85, 247, 0.3));
+  box-shadow: inset 0 -3px 0 0 var(--neon-pink), 0 0 20px rgba(255, 0, 85, 0.3);
 }
 
-.halo-btn--outline {
-  background: transparent;
-  color: var(--text);
-  border: 2px solid rgba(255, 255, 255, 0.35);
+.cybr-btn--secondary {
+  background: linear-gradient(120deg, rgba(5, 217, 232, 0.15), rgba(168, 85, 247, 0.1));
+  box-shadow: inset 0 -3px 0 0 var(--neon-cyan);
 }
 
-.halo-btn--outline:hover {
-  border-color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.05);
+.cybr-btn--secondary:hover {
+  background: linear-gradient(120deg, rgba(5, 217, 232, 0.3), rgba(168, 85, 247, 0.2));
+  box-shadow: inset 0 -3px 0 0 var(--neon-cyan), 0 0 20px rgba(5, 217, 232, 0.3);
 }
 
+.cybr-btn__glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: transparent;
+  text-shadow: 2px 2px var(--neon-pink), -2px -2px var(--neon-cyan);
+  opacity: 0;
+  transition: none;
+}
+
+.cybr-btn:hover .cybr-btn__glitch {
+  animation: btnGlitch 0.4s steps(2, end) forwards;
+}
+
+@keyframes btnGlitch {
+  0%   { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translate(-3px, 2px); }
+  20%  { clip-path: inset(10% 0 60% 0); transform: translate(3px, -1px); }
+  40%  { clip-path: inset(60% 0 10% 0); transform: translate(-2px, -2px); }
+  60%  { clip-path: inset(20% 0 40% 0); transform: translate(4px, 1px); }
+  80%  { clip-path: inset(50% 0 20% 0); transform: translate(-3px, 0px); }
+  100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0); }
+}
+
+.cybr-btn__tag {
+  position: absolute;
+  bottom: -1px;
+  right: 8%;
+  padding: 1px 5px;
+  background: var(--neon-pink);
+  color: #080116;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-family: var(--font-mono);
+}
+
+.cybr-btn--secondary .cybr-btn__tag {
+  background: var(--neon-cyan);
+}
+
+/* ── Scroll indicator ── */
 .hero-scroll {
   margin-top: auto;
   padding-top: 2rem;
@@ -188,16 +294,14 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
   animation: bounce 2s infinite;
 }
 
 .scroll-indicator {
-  width: 1px;
+  width: 2px;
   height: 30px;
-  background: linear-gradient(to bottom, var(--halo-gold), transparent);
+  background: linear-gradient(to bottom, var(--neon-cyan), transparent);
 }
 
 @keyframes fadeInUp {
@@ -210,6 +314,7 @@
   50%      { transform: translateY(10px); }
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .profile-photo {
     width: 160px;
@@ -217,26 +322,35 @@
   }
 
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
-
-  .hero-subtitle {
-    font-size: 1rem;
+  
+  .neon-flicker {
+    font-size: 1.5rem;
   }
-
+  
   .hero-description {
     font-size: 1rem;
   }
 
-  .halo-btn {
-    padding: 0.8rem 1.75rem;
-    font-size: 0.75rem;
+  .cybr-btn {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .glitch::before,
+  .glitch::after,
+  .glitch,
+  .neon-flicker,
   .scanlines,
-  .profile-shield-ring {
+  .cybr-btn:hover .cybr-btn__glitch {
     animation: none !important;
+  }
+
+  .neon-flicker {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(5, 217, 232, 0.6);
   }
 }

@@ -1,286 +1,60 @@
-.shield-boot {
+.boot-overlay {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: #050506;
+  background: #030008;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.6s ease;
+}
+
+.boot-overlay--fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot-terminal {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: #05d9e8;
+  max-width: 600px;
+  padding: 2rem;
+  line-height: 1.8;
+}
+
+.boot-line {
+  animation: bootLineIn 0.15s ease-out;
+  white-space: nowrap;
   overflow: hidden;
 }
 
-.shield-boot--fade {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.shield-boot__damage-vignette {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.shield-boot__damage-vignette.active {
-  animation: damageFlash 1.4s ease-out forwards;
-}
-
-@keyframes damageFlash {
-  0%   { opacity: 0; box-shadow: inset 0 0 200px 60px rgba(200, 30, 20, 0.7); }
-  15%  { opacity: 1; box-shadow: inset 0 0 200px 60px rgba(200, 30, 20, 0.7); }
-  30%  { opacity: 0.8; box-shadow: inset 0 0 180px 50px rgba(200, 30, 20, 0.5); }
-  50%  { opacity: 0.6; box-shadow: inset 0 0 160px 40px rgba(200, 30, 20, 0.4); }
-  70%  { opacity: 0.3; box-shadow: inset 0 0 120px 30px rgba(200, 30, 20, 0.2); }
-  100% { opacity: 0; box-shadow: inset 0 0 80px 20px rgba(200, 30, 20, 0); }
-}
-
-.shield-boot__recharge-flash {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-  animation: rechargeFlash 0.8s ease-out forwards;
-}
-
-@keyframes rechargeFlash {
-  0%   { background: rgba(0, 180, 216, 0.3); }
-  30%  { background: rgba(0, 180, 216, 0.1); }
-  100% { background: transparent; }
-}
-
-.shield-boot__center {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.shield-boot__warning {
-  animation: warningAppear 0.3s ease-out;
-}
-
-.shield-boot__warning-icon {
-  font-size: 3.5rem;
-  color: #c42020;
-  margin-bottom: 1rem;
-  animation: warningPulse 0.5s ease-in-out infinite;
-}
-
-@keyframes warningPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.4; transform: scale(0.95); }
-}
-
-.shield-boot__warning-text {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.8rem;
+.boot-line--highlight {
+  color: #ff0055;
   font-weight: 700;
-  color: #c42020;
-  letter-spacing: 0.2em;
-  animation: textFlicker 0.3s step-end infinite;
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.6), 0 0 30px rgba(255, 0, 85, 0.2);
 }
 
-.shield-boot__warning-sub {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.8rem;
-  color: rgba(196, 32, 32, 0.5);
-  letter-spacing: 0.15em;
-  margin-top: 0.5rem;
-}
-
-@keyframes textFlicker {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-@keyframes warningAppear {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-.shield-boot__recharge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: rechargeAppear 0.4s ease-out;
-}
-
-@keyframes rechargeAppear {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.shield-boot__label {
-  font-family: 'Orbitron', monospace;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #00b4d8;
-  letter-spacing: 0.25em;
-  margin-bottom: 1.5rem;
-}
-
-.shield-boot__bar-container {
-  position: relative;
-  width: 420px;
-  max-width: 85vw;
-}
-
-.shield-boot__bar-track {
-  display: flex;
-  gap: 3px;
-  padding: 5px;
-  background: rgba(0, 180, 216, 0.04);
-  border: 1px solid rgba(0, 180, 216, 0.15);
-  position: relative;
-  z-index: 2;
-}
-
-.shield-boot__segment {
-  flex: 1;
-  height: 22px;
-  background: rgba(0, 180, 216, 0.06);
-  transition: background 0.1s ease, box-shadow 0.1s ease;
-}
-
-.shield-boot__segment.filled {
-  background: linear-gradient(180deg, #00d4ff, #0088aa);
-  box-shadow: 0 0 6px rgba(0, 212, 255, 0.35);
-}
-
-.shield-boot__segment.latest {
-  animation: segmentFlash 0.2s ease-out;
-}
-
-@keyframes segmentFlash {
-  0%   { background: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); }
-  100% { background: linear-gradient(180deg, #00d4ff, #0088aa); box-shadow: 0 0 6px rgba(0, 212, 255, 0.35); }
-}
-
-.shield-boot__bar-glow {
-  position: absolute;
-  bottom: -2px;
-  left: 5px;
-  height: 3px;
-  background: #00d4ff;
-  filter: blur(6px);
-  transition: width 0.15s ease;
-  z-index: 1;
-  opacity: 0.5;
-}
-
-.shield-boot__percent {
-  font-family: 'Orbitron', monospace;
-  font-size: 2.2rem;
+.boot-cursor {
+  display: inline-block;
+  color: #ff0055;
+  animation: cursorBlink 0.6s step-end infinite;
   font-weight: 700;
-  color: #00d4ff;
-  margin-top: 1rem;
-  letter-spacing: 0.1em;
 }
 
-.shield-boot__ready {
-  margin-top: 1.5rem;
-  animation: readyAppear 0.5s ease-out;
+@keyframes bootLineIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
-.shield-boot__ready span {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #c8a830;
-  letter-spacing: 0.2em;
-}
-
-@keyframes readyAppear {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.shield-boot__hud-corners {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.shield-boot__corner {
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  border-color: rgba(200, 168, 48, 0.15);
-  border-style: solid;
-  border-width: 0;
-}
-
-.shield-boot__corner--tl {
-  top: 2rem;
-  left: 2rem;
-  border-top-width: 1px;
-  border-left-width: 1px;
-}
-
-.shield-boot__corner--tr {
-  top: 2rem;
-  right: 2rem;
-  border-top-width: 1px;
-  border-right-width: 1px;
-}
-
-.shield-boot__corner--bl {
-  bottom: 2rem;
-  left: 2rem;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-}
-
-.shield-boot__corner--br {
-  bottom: 2rem;
-  right: 2rem;
-  border-bottom-width: 1px;
-  border-right-width: 1px;
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 @media (max-width: 768px) {
-  .shield-boot__warning-text {
-    font-size: 1.3rem;
-  }
-
-  .shield-boot__warning-icon {
-    font-size: 2.5rem;
-  }
-
-  .shield-boot__label {
+  .boot-terminal {
     font-size: 0.8rem;
+    padding: 1.5rem;
   }
-
-  .shield-boot__percent {
-    font-size: 1.6rem;
-  }
-
-  .shield-boot__segment {
-    height: 16px;
-  }
-
-  .shield-boot__ready span {
-    font-size: 1rem;
-  }
-
-  .shield-boot__corner {
-    width: 22px;
-    height: 22px;
-  }
-
-  .shield-boot__corner--tl,
-  .shield-boot__corner--tr { top: 1rem; }
-  .shield-boot__corner--bl,
-  .shield-boot__corner--br { bottom: 1rem; }
-  .shield-boot__corner--tl,
-  .shield-boot__corner--bl { left: 1rem; }
-  .shield-boot__corner--tr,
-  .shield-boot__corner--br { right: 1rem; }
 }
