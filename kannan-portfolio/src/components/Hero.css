@@ -167,6 +167,35 @@
   line-height: 1.6;
 }
 
+.typing-text {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(8, 1, 22, 0.4);
+  border: 1px solid rgba(255, 0, 85, 0.15);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  min-height: 5rem;
+}
+
+.typing-prefix {
+  color: var(--neon-cyan);
+  font-weight: 700;
+}
+
+.typing-cursor {
+  color: var(--neon-cyan);
+  font-weight: 700;
+  margin-left: 1px;
+}
+
+.typing-cursor--hidden {
+  opacity: 0;
+}
+
 .hero-buttons {
   display: flex;
   gap: 1.5rem;
